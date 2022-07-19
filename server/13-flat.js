@@ -26,3 +26,23 @@ const matriz2 = [
 const rta = matriz2.flat(3);
 
 console.log('flat', rta);
+
+//
+const matriz3 = [
+    [1,2,3],
+    [4,5,6, [1,2, [11,22]]],
+    [7,8,9]
+];
+
+function profundidad(list) {
+    let newList = [];
+    if (typeof list != "object") return [list];
+    list.forEach(element => {
+        newList = newList.concat(profundidad(element));
+    });
+    return newList;
+}
+
+const newArray2 = profundidad(matriz3);
+
+console.log(newArray2);
